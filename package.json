@@ -1,15 +1,13 @@
 {
-  "name": "@layerzerolabs/stargate",
+  "name": "@lz-asia/stargate",
   "license": "GPL-3.0-only",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "files": [
-    "artifacts/contracts/Router.sol/Router.json",
-    "artifacts/contracts/Pool.sol/Pool.json",
-    "artifacts/contracts/LPStaking.sol/LPStaking.json",
-    "artifacts/contracts/libraries/StargateFeeLibraryV01.sol/StargateFeeLibraryV01.json",
-    "artifacts/contracts/libraries/StargateFeeLibraryV01.sol/StargateFeeLibraryV02.json",
-    "artifacts/contracts/interfaces/IStargateFeeLibrary.sol/IStargateFeeLibrary.json",
-    "artifacts/contracts/StargateToken.sol/StargateToken.json"
+    "abis",
+    "artifacts",
+    "contracts",
+    "docs",
+    "typechain-types"
   ],
   "scripts": {
     "compile": "npx hardhat compile",
@@ -39,7 +37,8 @@
     "testPoolstate": "npx hardhat test test/PoolState.test.js",
     "dev": "hardhat node",
     "prettier": "prettier --write test/**/*.js && prettier --write test/*.js && prettier --write deploy/*.js && prettier --write tasks/*.js && prettier --write contracts/*.sol && prettier --write contracts/**/*.sol",
-    "lint": "yarn prettier && solhint 'contracts/**/*.sol'"
+    "lint": "yarn prettier && solhint 'contracts/**/*.sol'",
+    "prepublish": "rimraf abis artifacts cache coverage docs typechain-types && yarn compile"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -48,6 +47,8 @@
     "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@nomiclabs/hardhat-web3": "^2.0.0",
     "@openzeppelin/contracts": "3.4.2-solc-0.7",
+    "@typechain/ethers-v5": "^10.1.0",
+    "@typechain/hardhat": "^6.1.0",
     "chai": "^4.3.4",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",
@@ -60,13 +61,15 @@
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.4.7",
     "hardhat": "2.8.0",
+    "hardhat-abi-exporter": "^2.10.1",
     "hardhat-deploy": "^0.9.19",
     "hardhat-gas-reporter": "^1.0.7",
     "hardhat-spdx-license-identifier": "^2.0.0",
     "prettier": "^2.4.1",
     "prettier-plugin-solidity": "^1.0.0-beta.18",
     "solhint": "^3.3.6",
-    "solidity-coverage": "^0.7.17"
+    "solidity-coverage": "^0.7.17",
+    "typechain": "^8.1.1"
   },
   "dependencies": {
     "@layerzerolabs/lz-sdk": "^0.0.2",

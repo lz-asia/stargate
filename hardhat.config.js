@@ -12,6 +12,8 @@ require("@primitivefi/hardhat-dodoc");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
 require("hardhat-spdx-license-identifier");
+require("hardhat-abi-exporter");
+require("@typechain/hardhat");
 
 // const infuraProjectId = process.env.INFURA_PROJECT_ID;
 // console.log(`infuraProjectId: ${infuraProjectId}`);
@@ -70,6 +72,13 @@ function accounts(chainKey) {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
+    abiExporter: {
+        path: "./abis",
+        runOnCompile: true,
+        clear: true,
+        flat: true,
+        spacing: 2,
+    },
     solidity: {
         version: "0.7.6",
         settings: {
